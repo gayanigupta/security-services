@@ -1,0 +1,65 @@
+# exports
+export EDITOR=/usr/bin/vim
+export BLOCKSIZE=1k
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+export JAVA_HOME=$(/usr/libexec/java_home)
+export GRADLE_HOME=/Users/ggupta/opt/gradle-2.5
+export PATH="~/bin:${PATH}"
+export PATH="${JAVA_HOME}/bin:${PATH}"
+export PATH="${PATH}:/Users/ggupta/opt/apache-maven-3.3.9/bin"
+export PATH="${PATH}:/Users/ggupta/opt/apache-ant-1.9.6/bin"
+export PATH="${PATH}:/Applications/Postgres.app/Contents/Versions/9.5/bin"
+export PATH="${PATH}:/Users/ggupta/opt/node/bin"
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+export HISTCONTROL=ignoredups
+export APPSERVER_HOME="/Users/ggupta/opt/apache-tomcat"
+export ATLAS_TOKEN="Fq8NMg10fpV2wQ.atlasv1.akTfvZpwOdOxKc6h4B3E79IENZ9nCISXnhIhfuOZH6rlzQEzLu8JhzWyyl58MLIRXdE"
+
+# Tomcat start/stop helpers
+. ~/bin/funcs
+
+# aliases
+alias ls='ls -GFh'
+alias cic='set completion-ignore-case On'   # cic:   Make tab-completion case-insensitive
+alias f='open -a Finder ./'                 # f:     Opens current directory in MacOS Finder
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
+alias ll='ls -l'
+alias psg='ps -ef | grep -v grep | grep -i '
+alias eclipse='~/opt/eclipse/eclipse &'
+alias gvim='mvim'
+alias gview='gvim -R'
+alias g='gvim -p'
+alias gvimdiff='gvim -d'
+#g() { open /Users/ggupta/opt/MacVim.app --args "$@"; }
+gi() { grep --color -isr "$@" *; }
+# cd aliases
+alias cddev='cd ~/dev/'
+alias cddoi='cd ~/dev/doii'
+alias cdome='cd ~/dev/ome-web'
+alias cdbison='cd ~/dev/bison'
+alias cdum='cd ~/dev/user_management'
+alias cddrw='cd ~/dev/drw-web'
+alias cditis='cd ~/dev/itis'
+alias cdswap='cd ~/dev/swap'
+# git aliases
+alias gs='git status'
+alias gsp='git status --porcelain'
+alias gd='git diff'
+alias gco='git checkout'
+alias gfstaging='git fetch origin staging'
+#alias git="/Library/Developer/CommandLineTools/usr/bin/git"
+
+# tomcat aliases 
+alias startome='startTomcat ~/opt/ome_tomcat'
+alias stopome='stopTomcat ~/opt/ome_tomcat'
+alias deployome='deployToTomcat ~/opt/ome_tomcat ~/dev/online_editor/trunk/usgsome/OME.war'
+alias deployomecrowd='deployToTomcat ~/opt/ome_tomcat ~/dev/online_editor/branches/ome-crowd/OME.war'
+
+alias updatedrw='cp -aR ~/dev/workbench-web/src/main/webapp/angular ~/opt/drw_tomcat/webapps/usgs-drw/'
+# useful options
+#set completion-ignore-case On
+source ~/bin/setPrompt
+source ~/bin/git-completion.bash
+
